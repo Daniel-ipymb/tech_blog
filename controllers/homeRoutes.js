@@ -12,7 +12,10 @@ router.get('/',withAuth, async (req, res) => {
     });
     const posts = postData.map((post) => post.get({ plain: true }))
     
-    res.status(200).json(userData)
+    res.render('homeRoutes', {
+      ...posts,
+      logged_in: true
+    });
   } catch (error) {
     res.status(500).json(error)
   }
@@ -29,6 +32,11 @@ router.get('/post/:id',withAuth, async (req,res) => {
       ]
     });
     const posts = (await postdata).get({ plain: true })
+
+    res.render('post', {
+      ...posts,
+      logged_in: true
+    });
   } catch (error) {
     res.status(500).json(error)
   }
