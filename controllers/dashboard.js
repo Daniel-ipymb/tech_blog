@@ -54,9 +54,19 @@ router.get('/:id', withAuth, async (req,res) => {
     const postData = await Post.findOne({
       where: {
         id: req.params.id
+      },
+      include: {
+        model: Comment,
+        attributes: 'comment_text'
       }
     })
+    const post = postData.get({ plain: true });
+
+    res.render('view-post', {
+      ...post,
+      logged_in: true
+    })
   } catch (error) {
-    
+    res.status(500).json(error);
   }
 })
