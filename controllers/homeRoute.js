@@ -32,4 +32,22 @@ router.get('/post/:id',withAuth, async (req,res) => {
   } catch (error) {
     res.status(500).json(error)
   }
+});
+
+router.get('/login', (req,res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login')
+});
+
+router.get('/signup', (req,res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup')
 })
