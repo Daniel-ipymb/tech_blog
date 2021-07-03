@@ -18,13 +18,10 @@ Post.init(
     post_content: {
       type: DataTypes.STRING,
     },
-    creator_username: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     date_created: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      defaultValue: DataTypes.NOW
     },
     user_id: {
       type: DataTypes.INTEGER,

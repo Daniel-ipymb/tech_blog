@@ -1,9 +1,6 @@
 const router = require('express').Router();
-const { SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER } = require('constants');
-const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-const { post } = require('./api');
 
 router.get('/', withAuth, async (req,res) => {
   try {
