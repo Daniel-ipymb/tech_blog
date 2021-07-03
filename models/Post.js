@@ -18,7 +18,7 @@ Post.init(
     post_content: {
       type: DataTypes.STRING,
     },
-    username: {
+    creator_username: {
       type: DataTypes.STRING,
       allowNull: false
     },
