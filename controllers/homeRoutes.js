@@ -2,26 +2,28 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/',withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      attributes: [
-        'title',
-        'date_created'
-      ]
-    });
-    const posts = postData.map((post) => post.get({ plain: true }))
+    // const postData = await Post.findAll({
+    //   attributes: [
+    //     'title',
+    //     'date_created'
+    //   ]
+    // });
+    // const posts = postData.map((post) => post.get({ plain: true }))
     
-    res.render('homeRoutes', {
-      ...posts,
-      logged_in: true
-    });
+    res.render('homeRoutes')
+    // {
+    //   ...posts,
+    //   logged_in: true
+    // }
+    
   } catch (error) {
     res.status(500).json(error)
   }
 });
 
-router.get('/post/:id',withAuth, async (req,res) => {
+router.get('/post/:id', async (req,res) => {
   try {
     const postdata = Post.findByPk(req.params.id, {
       include: [
@@ -43,7 +45,7 @@ router.get('/post/:id',withAuth, async (req,res) => {
 });
 
 router.get('/login', (req,res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
@@ -52,7 +54,7 @@ router.get('/login', (req,res) => {
 });
 
 router.get('/signup', (req,res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect('/');
     return;
   }

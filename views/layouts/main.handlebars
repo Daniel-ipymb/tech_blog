@@ -10,31 +10,23 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/"></a> Home</li>
+        <li><a href="/dashboard"></a></li>
+        {{!-- {{#if logged_in}}
+        <a href="/profile">Log In</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
-
+        {{/if}} --}}
+        <li><a href="/login">login</a></li>
+        <li><a href="/logout">logout</a></li>
+      </ul>
+      <h1>The Tech Blog</h1>
+    </nav>
+  </header>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
