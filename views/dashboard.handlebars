@@ -1,3 +1,11 @@
+
 <div>
   <a href="/dashboard/add"><button id="new-post-btn">New Post</button></a>
 </div>
+{{#each posts as |post|}}
+  <div>
+    <h4>{{post.title}}</h4>
+    <p>Posted by {{post.user.username}} on {{post.date_created}}</p>
+  </div>
+
+{{/each}}

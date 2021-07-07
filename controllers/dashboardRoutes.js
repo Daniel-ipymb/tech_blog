@@ -5,53 +5,53 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req,res) => {
   try {
     const postData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ],
       where: {
         user_id: req.session.user_id
       },
-      include: {
-        model: Comment,
-        attributes: 'comment_text'
-      }
     })
     const posts = postData.map((post) =>post.get({ plain: true }));
     
     res.render('dashboard', {
-      ...posts,
-      logged_in: true
+      posts:[...posts],
+      logged_in: req.session.logged_in
     });
   } catch (error) {
     res.status(500).json(error);
   }
 })
 // router for adding a new blog
-router.get('/add', async (req,res) => {
-//   try {
-//     const postData = await Post.findByPk(req.params.id, {
-//       include: {
-//         model: Comment,
-//         attributes: [
-//           'comment_text'
-//         ]
-//       }
-//     });
-//     const post = postData.get({ plain: true });
-
-//     res.render('add-post', {
-//       ...post,
-//       logged_in: true
-//     })
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
+router.get('/edit/:id', async (req,res) => {
   try {
-    res.render('post')
+    const postData = await Post.findByPk(req.params.id, {
+      include: {
+        model: Comment,
+        attributes: [
+          'comment_text'
+        ]
+      }
+    });
+    const post = postData.get({ plain: true });
+
+    res.render('editpost', {
+      ...post,
+      logged_in: req.session.logged_in
+    })
   } catch (error) {
-    console.log(error)
+    res.status(500).json(error);
   }
 });
 
+router.get('/add', async (req,res) => res.render('post'))
+
+
 //route to get a specific blog recently created in dashboard
-router.get('/:id', async (req,res) => {
+router.get('/viewpost/:id', async (req,res) => {
   try {
     const postData = await Post.findOne({
       where: {
@@ -60,13 +60,17 @@ router.get('/:id', async (req,res) => {
       include: {
         model: Comment,
         attributes: 'comment_text'
+      },
+      include: {
+        model: User,
+        attributes: 'username'
       }
     })
     const post = postData.get({ plain: true });
 
     res.render('view-post', {
       ...post,
-      logged_in: true
+      logged_in: req.session.logged_in
     })
   } catch (error) {
     res.status(500).json(error);

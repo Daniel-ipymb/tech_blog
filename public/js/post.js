@@ -6,8 +6,8 @@ function createPost(event){
   fetch ('/api/post', {
     method: 'POST',
       body: JSON.stringify({
-        title: document.querySelector('#title'),
-        post_content: document.querySelector('#content')
+        title: document.querySelector('#title').value.trim(),
+        post_content: document.querySelector('#content').value.trim()
       }),
       headers: {
         'Content-Type': 'application/json'},
