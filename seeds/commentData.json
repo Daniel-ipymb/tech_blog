@@ -1,14 +1,22 @@
 [
   {
-    "comment_text": "Not a big deal"
+    "comment_text": "Not a big deal",
+    "user_id": 3,
+    "post_id": 1
   },
   {
-    "comment_text": "Summer is here"
+    "comment_text": "Summer is here",
+    "user_id": 1,
+    "post_id": 2
   },
   {
-    "comment_text": "Everything is fine"
+    "comment_text": "Everything is fine",
+    "user_id": 2,
+    "post_id": 3
   },
   {
-    "comment_text": "Cool story bro!"
+    "comment_text": "Cool story bro!",
+    "user_id": 4,
+    "post_id": 2
   }
 ]

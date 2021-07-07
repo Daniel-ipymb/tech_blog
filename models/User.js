@@ -23,12 +23,12 @@ User.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isEmail: true
-      }
+      // validate: {
+      //   isEmail: true
+      // }
     },
     password: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     }
   },
