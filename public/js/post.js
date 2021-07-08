@@ -17,7 +17,7 @@ function createPost(event) {
       console.log('success')
       document.location.replace('/dashboard');
       }else {
-      onsole.log(res)
+      console.log(res)
       alert("SOMETHING WENT WRONG")
     }
   });
