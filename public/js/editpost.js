@@ -20,5 +20,30 @@ console.log("id",id)
     alert("SOMETHING WENT WRONG")
   }
 }
-document.querySelector('#update-btn').addEventListener('click', updateForm);
 
+
+const deleteForm = async (event) => {
+  event.preventDefault();
+  const id = document.querySelector('.content').id;
+  console.log("id", id)
+  const response = await fetch(`/api/post/${id}`, {
+    method: 'DELETE',
+    // body: JSON.stringify({
+    //   title: document.querySelector('.title').value.trim(),
+    //   post_content: document.querySelector('.content').value.trim()
+    // }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  if(response.ok) {
+    console.log('success')
+    document.location.replace('/dashboard');
+  } else {
+    console.log(response)
+    alert("SOMETHING WENT WRONG")
+  }
+}
+
+document.querySelector('#update-btn').addEventListener('click', updateForm);
+document.querySelector('#delete-btn').addEventListener('click', deleteForm);
