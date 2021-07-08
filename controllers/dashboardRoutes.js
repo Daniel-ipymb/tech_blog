@@ -28,16 +28,10 @@ router.get('/', async (req,res) => {
 // router for adding a new blog
 router.get('/edit/:id', async (req,res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: {
-        model: Comment,
-        attributes: [
-          'comment_text'
-        ]
-      }
-    });
+    const postData = await Post.findByPk(req.params.id);
+    console.log(postData)
     const post = postData.get({ plain: true });
-
+    console.log(post)
     res.render('editpost', {
       ...post,
       logged_in: req.session.logged_in
@@ -51,30 +45,30 @@ router.get('/add', async (req,res) => res.render('post'))
 
 
 //route to get a specific blog recently created in dashboard
-router.get('/viewpost/:id', async (req,res) => {
-  try {
-    const postData = await Post.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: {
-        model: Comment,
-        attributes: 'comment_text'
-      },
-      include: {
-        model: User,
-        attributes: 'username'
-      }
-    })
-    const post = postData.get({ plain: true });
+// router.get('/viewpost/:id', async (req,res) => {
+//   try {
+//     const postData = await Post.findOne({
+//       where: {
+//         id: req.params.id
+//       },
+//       include: {
+//         model: Comment,
+//         attributes: 'comment_text'
+//       },
+//       include: {
+//         model: User,
+//         attributes: 'username'
+//       }
+//     })
+//     const post = postData.get({ plain: true });
 
-    res.render('view-post', {
-      ...post,
-      logged_in: req.session.logged_in
-    })
-  } catch (error) {
-    res.status(500).json(error);
-  }
-})
+//     res.render('view-post', {
+//       ...post,
+//       logged_in: req.session.logged_in
+//     })
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// })
 
 module.exports=router
