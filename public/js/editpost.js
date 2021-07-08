@@ -1,8 +1,9 @@
 const updateForm = async (event) => {
   event.preventDefault();
-
+const id=document.querySelector('.title').id;
+console.log("id",id)
   const response = await fetch(`/api/post/${id}`, {
-    method: 'POST',
+    method: 'PUT',
     body: JSON.stringify({
       title: document.querySelector('.title').value.trim(),
       post_content: document.querySelector('.content').value.trim()
@@ -19,4 +20,5 @@ const updateForm = async (event) => {
     alert("SOMETHING WENT WRONG")
   }
 }
-document.querySelector('#update-btn').addEventListener('submit', updateForm);
+document.querySelector('#update-btn').addEventListener('click', updateForm);
+
