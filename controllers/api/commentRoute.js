@@ -6,6 +6,8 @@ router.post('/:id', async (req,res) => {
   try {
     const commentData = await Comment.create({
       comment_text: req.body.comment_text,
+      post_id: req.body.post_id,
+      user_id: req.session.user_id,
       where: {
         id : req.params.id
       },
