@@ -5,6 +5,7 @@ router.post('/', async (req, res) => {
   console.log(req.body)
   try {
     const userData = await User.create(req.body);
+    console.log(userData)
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -20,7 +21,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-
+    console.log(userData)
     if (!userData) {
       res
         .status(400)
