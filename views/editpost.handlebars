@@ -6,16 +6,16 @@
     <form class="card-form">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" value="{{post.title}}"/>
+        <input type="text" class="form-control title" id="exampleFormControlInput1" value="{{post.title}}"/>
       </div>
 
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label"></label>
-        <textarea {{post.post_content}} class="form-control" id="exampleFormControlTextarea1" rows="3">{{post.post_content}}</textarea>
+        <textarea {{post.post_content}} class="form-control content" id="exampleFormControlTextarea1" rows="3">{{post.post_content}}</textarea>
       </div>
 
       <div class="d-grid gap-2 d-md-block mx-auto">
-        <button id="update-btn" class="btn btn-primary" type="button">Update</button>
+        <button id="update-btn" class="btn btn-primary" type="submit">Update</button>
         <button id="delete-btn" class="btn btn-primary" type="button">Delete</button>
       </div>
     </form>

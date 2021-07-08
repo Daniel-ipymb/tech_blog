@@ -16,7 +16,7 @@ router.post('/', async (req,res) => {
   }
 });
 
-router.post('/update/:id', async (req,res) => {
+router.post('/:id', async (req,res) => {
   try {
     const updateData = await Post.update(
       {
@@ -28,6 +28,7 @@ router.post('/update/:id', async (req,res) => {
         id: req.params.id
       }
     });
+    console.log(updateData)
     res.status(200).json(updateData)
   } catch (error) {
     res.json(500).json(error)
