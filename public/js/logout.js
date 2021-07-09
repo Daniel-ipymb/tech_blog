@@ -3,5 +3,12 @@ document.querySelector('#logout').addEventListener('click', logout)
 function logout() {
   fetch ('/api/users/logout', {
     method: 'post',
-  }).then((res) => console.log(res))
+    headers: { 'Content-Type': 'application/json' },
+  }).then((res) => {
+    if (res.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
+  })
 }

@@ -10,5 +10,11 @@ function login(e) {
       }),
       headers: {
         'Content-Type': 'application/json'},
-    }).then((res) => console.log(res))
+    }).then((res) => {
+      if (res.ok) {
+        document.location.replace('/');
+      } else {
+        alert(response.statusText);
+      }
+    })
 }
