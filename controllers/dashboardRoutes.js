@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req,res) => {
+router.get('/', withAuth, async (req,res) => {
   try {
     const postData = await Post.findAll({
       include: [
@@ -26,7 +26,7 @@ router.get('/', async (req,res) => {
   }
 })
 // router for adding a new blog
-router.get('/edit/:id', async (req,res) => {
+router.get('/edit/:id',withAuth, async (req,res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
     console.log(postData)
@@ -41,34 +41,4 @@ router.get('/edit/:id', async (req,res) => {
   }
 });
 
-router.get('/add', async (req,res) => res.render('post'))
-
-
-//route to get a specific blog recently created in dashboard
-// router.get('/viewpost/:id', async (req,res) => {
-//   try {
-//     const postData = await Post.findOne({
-//       where: {
-//         id: req.params.id
-//       },
-//       include: {
-//         model: Comment,
-//         attributes: 'comment_text'
-//       },
-//       include: {
-//         model: User,
-//         attributes: 'username'
-//       }
-//     })
-//     const post = postData.get({ plain: true });
-
-//     res.render('view-post', {
-//       ...post,
-//       logged_in: req.session.logged_in
-//     })
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// })
-
-module.exports=router
+router.get('/add',withAuth, async (req,res) => res.render('post'))
