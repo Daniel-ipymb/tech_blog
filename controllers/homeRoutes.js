@@ -18,34 +18,35 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }))
     console.log(posts)
     res.render('homepage',
-    {
-      posts: [...posts],
-      logged_in: req.session.logged_in
-    })
-    
+      {
+        posts: [...posts],
+        logged_in: req.session.logged_in
+      })
+
   } catch (error) {
     res.status(500).json(error)
   }
 });
 
-router.get('/post/:id', async (req,res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    const postdata = await Post.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         {
-        model: Comment,
-        attributes: ['comment_text']
-        }
-      ],
-      include: [
+          model: User
+        },
         {
-          model: User,
-          attributes: ['username']
-        }
-      ]
+          model: Comment,
+          include: [
+            {
+              model: User
+            }
+          ]
+        }]
     });
-    const posts = postdata.get({ plain: true })
-
+    console.log('postData', postData)
+    const posts = postData.get({ plain: true })
+    console.log('posts', posts)
     res.render('comment', {
       ...posts,
       logged_in: req.session.logged_in
@@ -55,7 +56,7 @@ router.get('/post/:id', async (req,res) => {
   }
 });
 
-router.get('/login', (req,res) => {
+router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
     return;
@@ -64,7 +65,7 @@ router.get('/login', (req,res) => {
   res.render('login')
 });
 
-router.get('/signup', (req,res) => {
+router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
     return;
