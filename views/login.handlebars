@@ -1,6 +1,36 @@
-<form id="login-form">
+<div class="card">
+  <div class="card-header">
+    <p>Login</p>
+    <div class="card-body">
+      <form id="login-form">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Email address">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Password</label>
+          <input type="Password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="submit">Log In</button>
+        </div>
+      </form>
+      <a href="/signup">
+        <p>Sign up Instead</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{{!-- <form id="login-form">
   <input type="Email" placeholder="email" id="email">
   <input type="Password" placeholder="Enter password" id="password">
   <button type="submit">submit</button>
-</form>
+</form> --}}
 <script src="/js/login.js"></script>

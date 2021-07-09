@@ -15,18 +15,21 @@
 
 {{#each posts.comments as |comment|}}
 <div class="card">
-  {{!-- <div>
+  <div class="card-header">
 
-  </div> --}}
+  
   <div class="card-body">
     <p>{{comment.comment_text}}</p>
-    <p>{{comment.user.username}} on {{comment.date}}</p>
+    <p>-Creaated by {{comment.user.username}} on {{comment.date}}</p>
+  </div>
   </div>
 </div>
 {{/each}}
 
-<div>
-  <div>
+<div class="card">
+  <div class="card-header">
+  
+  <div class="card-body">
     <form>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
@@ -37,6 +40,7 @@
         <button id="submit-btn" class="btn btn-primary" type="submit">Submit</button>
       </div>
     </form>
+  </div>
   </div>
 </div>
 <script src="/js/comment.js"></script>

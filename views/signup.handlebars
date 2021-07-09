@@ -1,7 +1,39 @@
-<form id='signup-form'>
+<div class="card">
+  <div class="card-header">
+    <p>Sign Up</p>
+    <div class="card-body">
+      <form id="signup-form">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Username</label>
+          <input type="username" class="form-control" id="username" placeholder="Email address">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Email address">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Password</label>
+          <input type="Password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+        </div>
+      </form>
+      <a href="/signup">
+        <p>Sign up Instead</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{{!-- <form id='signup-form'>
   <input type="text" id="username">
   <input type="text" id="email">
   <input type="text" id="password">
   <button type="submit">Sign Up</button>
-</form>
+</form> --}}
 <script src="/js/signup.js"></script>
