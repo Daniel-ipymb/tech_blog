@@ -1,7 +1,7 @@
 const updateForm = async (event) => {
   event.preventDefault();
-const id=document.querySelector('.title').id;
-console.log("id",id)
+  const id = document.querySelector('.title').id;
+  console.log("id", id)
   const response = await fetch(`/api/post/${id}`, {
     method: 'PUT',
     body: JSON.stringify({
@@ -12,7 +12,7 @@ console.log("id",id)
       'Content-Type': 'application/json'
     },
   });
-  if(response.ok) {
+  if (response.ok) {
     console.log('success')
     document.location.replace('/dashboard');
   } else {
@@ -36,7 +36,7 @@ const deleteForm = async (event) => {
       'Content-Type': 'application/json'
     },
   });
-  if(response.ok) {
+  if (response.ok) {
     console.log('success')
     document.location.replace('/dashboard');
   } else {

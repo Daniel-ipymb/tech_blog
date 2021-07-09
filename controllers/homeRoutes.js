@@ -48,7 +48,7 @@ router.get('/post/:id', async (req, res) => {
     const posts = postData.get({ plain: true })
     console.log('posts', posts)
     res.render('comment', {
-      ...posts,
+      posts,
       logged_in: req.session.logged_in
     });
   } catch (error) {
