@@ -14,7 +14,7 @@ const updateComment = async (event) => {
   });
   if (response.ok) {
     console.log('success')
-    document.location.replace('/dashboard');
+    document.location.reload();
   } else {
     console.log(response)
     alert("SOMETHING WENT WRONG")
