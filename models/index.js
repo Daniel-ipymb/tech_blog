@@ -33,8 +33,3 @@ Comment.belongsTo(Post, {
 })
 
 module.exports = {User, Comment, Post};
-
-
-// User can have many posts
-//Post can have many comments but can only have one User
-//

@@ -1,0 +1,90 @@
+.card-margin {
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 2%;
+  width: 80%;
+}
+
+.card-flex {
+  display: flex;
+  justify-content: space-between;
+  background-color: brown;
+  padding: 10px;
+}
+
+.comment-container {
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 2%;
+  width: 80%;
+}
+
+.card-width {
+  width: 50%;
+ 
+  
+}
+
+.card_header {
+  background-color: cornflowerblue;
+  padding-top: 2%;
+}
+
+.card-container {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+ 
+  
+}
+
+.card-text {
+  text-align: center;
+  
+}
+
+.card_title {
+  text-align: center;
+  
+  
+}
+
+.comment-margin {
+  margin-top: 2%;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.dashboard-post {
+  align-self: center;
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.dashboard-space {
+  margin-bottom: auto;
+
+}
+
+body {
+  height: 100vh;
+}
+
+header {
+  height: 11%;
+}
+
+main {
+  height: 84%;
+}
+
+#new-post-btn {
+  height: 8vh;
+  width: 10vh;
+}
+

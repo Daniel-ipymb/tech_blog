@@ -41,4 +41,6 @@ router.get('/edit/:id',withAuth, async (req,res) => {
   }
 });
 
-router.get('/add',withAuth, async (req,res) => res.render('post'))
+router.get('/add',withAuth, async (req,res) => res.render('post', {logged_in: req.session.logged_in}))
+
+module.exports = router;
