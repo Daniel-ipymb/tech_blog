@@ -8,7 +8,7 @@
 .card-flex {
   display: flex;
   justify-content: space-between;
-  background-color: brown;
+  background-color:cornflowerblue;
   padding: 10px;
 }
 
@@ -21,13 +21,48 @@
 
 .card-width {
   width: 50%;
- 
-  
+}
+
+.title-container {
+  border-color: 5px white;
+  border-radius: 5px;
+  border-style: outset;
+  width: 15%;
+  background-color: white;
+  margin-top: 10px;
+  border-width: 5px;
+  text-align: center;
+  color: cornflowerblue;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-block {
+  display: block;
+  padding-left: 3em;
+  padding-bottom: 2em;
+}
+
+.nav-display {
+  display: flex;
+  justify-content: flex-start;
+  font-size: larger;
+
+}
+
+.nav-container {
+  background-color:rgb(16, 84, 212)
 }
 
 .card_header {
   background-color: cornflowerblue;
   padding-top: 2%;
+}
+
+h4 {
+  color: white;
 }
 
 .card-container {
@@ -49,8 +84,9 @@
   
 }
 
-.comment-margin {
-  margin-top: 2%;
+.comment-text-margin {
+  margin: 2%;
+
 }
 
 .dashboard-container {
@@ -76,7 +112,7 @@ body {
 }
 
 header {
-  height: 11%;
+  height: 13%;
 }
 
 main {
