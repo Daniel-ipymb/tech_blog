@@ -1,19 +1,19 @@
 {{#each posts as |post|}}
-<div class="card border-primary card-margin">
-  
-    <div class="card-flex card-textcolor">
-      <a href="/post/{{post.id}}">
-        <div>
-          <h4>{{post.title}}</h4>
-        </div>
-      </a>
-      <p>Posted by {{post.user.username}} on {{post.date_created}}</p>
-    </div>
-  
-  <div class="card-body ">
-      <div>
-        <p>{{post.post_content}}</p>
+<div class="card card-margin">
+
+  <div class="card-flex card-post">
+    <a href="/post/{{post.id}}">
+      <div class="post-title">
+        <h4>{{post.title}}</h4>
       </div>
+    </a>
+    <p>Posted by {{post.user.username}} on {{post.date_created}}</p>
+  </div>
+
+  <div class="card-body ">
+    <div>
+      <p>{{post.post_content}}</p>
     </div>
+  </div>
 </div>
 {{/each}}
