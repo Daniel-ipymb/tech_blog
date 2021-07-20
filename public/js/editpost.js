@@ -28,10 +28,6 @@ const deleteForm = async (event) => {
   console.log("id", id)
   const response = await fetch(`/api/post/${id}`, {
     method: 'DELETE',
-    // body: JSON.stringify({
-    //   title: document.querySelector('.title').value.trim(),
-    //   post_content: document.querySelector('.content').value.trim()
-    // }),
     headers: {
       'Content-Type': 'application/json'
     },
