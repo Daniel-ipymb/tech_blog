@@ -35,6 +35,10 @@
   color: cornflowerblue;
 }
 
+body {
+  font-family: 'Playfair Display', serif;
+}
+
 .nav-link {
   color: white;
 }
